@@ -17,15 +17,13 @@ export default class LocalFileCache<V extends Record<string, any>> {
     } catch {}
   }
 
-  private readFile() {
-    let result: Record<string, V> | void;
+  private readFile(): Record<string, V> | undefined {
     try {
       const content = fs.readFileSync(CONFIG_FILE(), "utf-8");
       const data = JSON.parse(content);
-      if (isPureObject(data)) result = data;
+      if (isPureObject(data)) return data;
     } catch {}
-
-    return result;
+    return undefined;
   }
 
   has(url: string) {

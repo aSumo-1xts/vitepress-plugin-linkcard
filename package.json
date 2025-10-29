@@ -9,7 +9,8 @@
   "module": "./dist/.esm.min.js",
   "types": "./types/index.d.ts",
   "files": [
-    "dist", "types"
+    "dist",
+    "types"
   ],
   "scripts": {
     "build": "tsc && rollup -c",
@@ -28,7 +29,7 @@
     "vite",
     "vitepress"
   ],
-  "author": "aSumo",
+  "author": "asumo-1xts",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/asumo-1xts/vitepress-plugin-linkcard"
@@ -49,7 +50,7 @@
     "markdown-it": "^13.0.1",
     "rollup": "^2.79.1",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.8.4"
+    "typescript": "^5.9.3"
   },
   "type": "module",
   "packageManager": "yarn@4.9.2"
