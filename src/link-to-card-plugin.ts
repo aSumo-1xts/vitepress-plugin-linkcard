@@ -6,9 +6,7 @@ import { getUrlMetadata, generateCardDomFragment } from "./assemble";
 
 export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
   function parseCardLinkHref(href?: string) {
-    const tagRegexp = new RegExp(
-      `^(${pluginOptions?.tag || "@"}:)([a-zA-Z0-9]+.*)`
-    );
+    const tagRegexp = new RegExp(`^(${"@"}:)([a-zA-Z0-9]+.*)`);
     const match = href?.match(tagRegexp);
 
     return {
