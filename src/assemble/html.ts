@@ -8,7 +8,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     rel: `rel="noopener noreferrer"`,
     target: `target="${options.target}"`,
     href: `href="${options.href}"`,
-    title: options.showTitle ? `title="${options.linkTitle}"` : "",
+    title: `title="${options.linkTitle}"`,
   };
 
   const inject = (s: string, c: string) => {

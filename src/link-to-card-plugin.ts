@@ -31,7 +31,6 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
         href: options.url,
         linkTitle: joinLinkTitle(options.tokens),
         target: pluginOptions.target || "_blank",
-        showTitle: pluginOptions.showTitle || true,
         classPrefix: pluginOptions.classPrefix,
       };
 

@@ -12,9 +12,6 @@ export type LinkToCardPlugin =
 export interface LinkToCardPluginOptions {
   tag?: string /* 标识符，默认：C  如，[xxx](C::https://github.com) */;
   target?: ATarget /* 在哪里显示链接的 URL，默认：_blank ，即新开 Tab 页打开链接*/;
-
-  showTitle?: boolean /* 是否显示链接标题，默认： true 。注意，这将以提示信息展示 */;
-
   classPrefix?: string /* 卡片 DOM 类名前缀，若设置该项，将不注入内链样式，直接注入相关类目。如，'my-docs__link-card' */;
   render?: CardDomRender /* 自定义渲染 DOM Fragment */;
 }
@@ -30,7 +27,6 @@ export type ATarget = "_self" | "_blank" | "_top" | "_parent";
 export interface CardDomRenderOptions {
   href: string;
   linkTitle: string;
-  showTitle: boolean;
   target: ATarget;
   classPrefix?: string;
 }

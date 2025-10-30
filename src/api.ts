@@ -22,7 +22,6 @@ export function generateCard(
         const _options = {
           linkTitle: options.linkTitle,
           target: options.target || "_blank",
-          showTitle: options.showTitle || true,
           classPrefix: options.classPrefix,
         };
 
