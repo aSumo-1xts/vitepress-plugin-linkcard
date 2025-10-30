@@ -1,5 +1,3 @@
-import type { Size } from "../types";
-
 function hyphenate(str: string): string {
   return str.replace(/\B([A-Z])/g, "-$1").toLowerCase();
 }
@@ -27,7 +25,7 @@ const ellipsisStyle = (line: number = 3) => ({
 });
 
 // See: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue
-const STYLE = {
+export const STYLE = {
   a: inlineStyle({
     color: "unset !important",
     display: "block",
@@ -64,10 +62,6 @@ const STYLE = {
     margin: "12px 2px 2px 2px",
   }),
 };
-
-export function styleNames(size: Size) {
-  return STYLE;
-}
 
 export const classNames = (prefix?: string) => ({
   container: `${prefix}__container`,

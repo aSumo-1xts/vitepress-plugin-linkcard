@@ -1,7 +1,7 @@
 import type { CardDomRender } from "../types";
 
 import { isString } from "@luckrya/utility";
-import { styleNames, classNames } from "./style";
+import { classNames, STYLE } from "./style";
 
 export const generateCardDomFragment: CardDomRender = (data, options) => {
   const aa = {
@@ -17,7 +17,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
   };
 
   const classes = classNames(options.classPrefix);
-  const style = styleNames(options.size);
+  const style = STYLE;
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
