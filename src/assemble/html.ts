@@ -8,13 +8,14 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     target: `target="${options.target}"`,
     href: `href="${options.href}"`,
     title: `title="${options.linkTitle}"`,
+    borderColor: `borderColor="${options.borderColor}"`,
   };
   const inject = (s: string, c: string) => {
     if (isString(options.classPrefix) && !!options.classPrefix) return c;
     return s;
   };
   const classes = classNames(options.classPrefix);
-  const style = STYLE;
+  const style = STYLE(options.borderColor || "#7d7d7d");
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>

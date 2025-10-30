@@ -30,6 +30,7 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
         linkTitle: joinLinkTitle(options.tokens),
         target: pluginOptions.target || "_blank",
         classPrefix: pluginOptions.classPrefix,
+        borderColor: pluginOptions.borderColor,
       };
 
       return isFunction(pluginOptions.render)

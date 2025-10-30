@@ -13,6 +13,7 @@ export interface LinkToCardPluginOptions {
   target?: ATarget /* 在哪里显示链接的 URL，默认：_blank ，即新开 Tab 页打开链接*/;
   classPrefix?: string /* 卡片 DOM 类名前缀，若设置该项，将不注入内链样式，直接注入相关类目。如，'my-docs__link-card' */;
   render?: CardDomRender /* 自定义渲染 DOM Fragment */;
+  borderColor?: string; // 輪郭線の色
 }
 
 export interface UrlMetadata {
@@ -28,6 +29,7 @@ export interface CardDomRenderOptions {
   linkTitle: string;
   target: ATarget;
   classPrefix?: string;
+  borderColor?: string;
 }
 
 export type CardDomRender = (

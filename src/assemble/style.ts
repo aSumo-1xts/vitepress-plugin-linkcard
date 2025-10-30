@@ -25,7 +25,7 @@ const ellipsisStyle = (line: number = 3) => ({
 });
 
 // See: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue
-export const STYLE = {
+export const STYLE = (color: string) => ({
   a: inlineStyle({
     color: "unset !important",
     display: "block",
@@ -37,7 +37,7 @@ export const STYLE = {
     alignItems: "center",
     padding: "12px 12px",
     borderRadius: "12px",
-    border: "1px solid #7d7d7d", // TODO : make changeable
+    border: `1px solid ${color}`,
   }),
   img: inlineStyle({
     marginRight: "12px",
@@ -61,7 +61,7 @@ export const STYLE = {
     lineHeight: "20px",
     margin: "12px 2px 2px 2px",
   }),
-};
+});
 
 export const classNames = (prefix?: string) => ({
   container: `${prefix}__container`,
