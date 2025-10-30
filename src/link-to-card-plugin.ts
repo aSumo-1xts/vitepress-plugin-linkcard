@@ -6,9 +6,7 @@ import { getUrlMetadata, generateCardDomFragment } from "./assemble";
 
 export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
   function parseCardLinkHref(href?: string) {
-    const tagRegexp = new RegExp(
-      `^(${pluginOptions?.tag || "@"}:)([a-zA-Z0-9]+.*)`
-    );
+    const tagRegexp = new RegExp(`^(${"@"}:)([a-zA-Z0-9]+.*)`);
     const match = href?.match(tagRegexp);
 
     return {
@@ -31,8 +29,6 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
         href: options.url,
         linkTitle: joinLinkTitle(options.tokens),
         target: pluginOptions.target || "_blank",
-        size: pluginOptions.size || "large",
-        showTitle: pluginOptions.showTitle || true,
         classPrefix: pluginOptions.classPrefix,
       };
 
@@ -62,6 +58,7 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
     return result;
   };
 
+  // ↓ envは呼ばれなくても消さないこと
   md.renderer.rules.link_open = (tokens, i, rootOptions, env, self) => {
     const token = tokens[i];
     const isLinkOpenToken = token.tag === "a" && token.type === "link_open";
@@ -69,14 +66,8 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
     const { url, isCardLink } = parseCardLinkHref(href);
 
     if (isLinkOpenToken && isCardLink && url) {
-      const card = assembleCardTpl({
-        url,
-        tokens,
-        i,
-      });
-
+      const card = assembleCardTpl({ url, tokens, i });
       if (card) return card;
-      return self.renderToken(tokens, i, rootOptions);
     }
 
     return self.renderToken(tokens, i, rootOptions);

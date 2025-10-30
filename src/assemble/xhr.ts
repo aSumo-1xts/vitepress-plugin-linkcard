@@ -9,12 +9,10 @@ const XHR = inBrowser ? window.XMLHttpRequest : xhrForNode.XMLHttpRequest;
 
 export function sync(url: string) {
   if (cache.has(url)) return cache.get(url);
-
   let result: string | undefined;
 
   try {
     const xhr = new XHR();
-
     xhr.open("GET", url, false);
     xhr.setRequestHeader("Content-Type", "text/html");
     xhr.send();
@@ -40,8 +38,8 @@ export function async(url: string): Promise<string | undefined> {
   return new Promise((resolve, reject) => {
     try {
       if (cache.has(url)) return resolve(cache.get(url));
-
       const xhr = new XHR();
+
       xhr.open("GET", url, false);
       xhr.setRequestHeader("Content-Type", "text/html");
       xhr.onreadystatechange = function () {

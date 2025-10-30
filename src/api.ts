@@ -16,22 +16,19 @@ export function generateCard(
 ): Promise<CardResponse> {
   return new Promise((resolve, reject) => {
     const htmlString = xhr.sync(url);
+
     if (htmlString) {
       const urlMetadata = parserMetadata(htmlString, url);
       if (urlMetadata) {
         const _options = {
           linkTitle: options.linkTitle,
           target: options.target || "_blank",
-          size: options.size || "large",
-          showTitle: options.showTitle || true,
           classPrefix: options.classPrefix,
         };
-
         const card = generateCardDomFragment(urlMetadata, {
           ..._options,
           href: url,
         });
-
         const response = {
           url,
           data: urlMetadata,

@@ -6,9 +6,7 @@ const cache = new LocalFileCache<UrlMetadata>();
 
 export function getUrlMetadata(url: string) {
   if (cache.has(url)) return cache.get(url);
-
   let metadata: UrlMetadata | null = null;
-
   const htmlString = xhr.sync(url);
 
   if (htmlString) {
