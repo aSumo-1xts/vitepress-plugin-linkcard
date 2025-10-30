@@ -1,5 +1,4 @@
 import type { CardDomRender } from "../types";
-
 import { isString } from "@luckrya/utility";
 import { classNames, STYLE } from "./style";
 
@@ -10,12 +9,10 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     href: `href="${options.href}"`,
     title: `title="${options.linkTitle}"`,
   };
-
   const inject = (s: string, c: string) => {
     if (isString(options.classPrefix) && !!options.classPrefix) return c;
     return s;
   };
-
   const classes = classNames(options.classPrefix);
   const style = STYLE;
 

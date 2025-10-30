@@ -55,7 +55,3 @@ export default defineConfig({
 ```md
 [example](@:https://example.com)
 ```
-
-## Info
-
-About it's css-style, see [`/src/assemble/style.ts`](/src/assemble/style.ts).

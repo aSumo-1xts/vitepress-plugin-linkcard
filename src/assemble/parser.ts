@@ -7,7 +7,6 @@ import { isString } from "@luckrya/utility";
 import { cleanPath, extractUrl } from "./url";
 
 const DEFAULT_LOGO = "https://resources.whatwg.org/logo-url.svg";
-
 const HtmlEncodeReg = /[&<>"']/g;
 const HtmlTagContentReg = /(<[A-Za-z]+\s*[^>]*>(.*)<\/[A-Za-z]+>)/;
 const ContentAttrValueHtmlMetaTagReg = /content=["|']([^>]*)["|']/;
@@ -44,8 +43,8 @@ function escapeHTML(str?: string) {
  */
 function matchTitleByMetaTag(htmlString: string) {
   let title: string | undefined;
-
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("title"));
+
   if (!!metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) title = content[1];
@@ -69,8 +68,8 @@ function matchTitleByMetaTag(htmlString: string) {
  */
 function matchDescriptionByMetaTag(htmlString: string) {
   let description: string | undefined;
-
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("description"));
+
   if (!!metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) description = content[1];
@@ -86,8 +85,8 @@ function matchDescriptionByMetaTag(htmlString: string) {
  */
 function matchLogoByLinkOrMetaTag(htmlString: string) {
   let logo: string | undefined;
-
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("image"));
+
   if (!!metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) logo = content[1];

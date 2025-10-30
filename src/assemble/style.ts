@@ -42,8 +42,8 @@ export const STYLE = {
   img: inlineStyle({
     marginRight: "12px",
     borderRadius: "12px",
-    width: "210px",
-    height: "110px",
+    width: "240px",
+    height: "126px",
   }),
   texts: inlineStyle({}),
   title: inlineStyle({
