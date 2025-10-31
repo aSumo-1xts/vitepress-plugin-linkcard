@@ -14,6 +14,13 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     if (isString(options.classPrefix) && !!options.classPrefix) return c;
     return s;
   };
+  const escapeHTML = (str: string) =>
+    str
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'");
   const classes = classNames(options.classPrefix);
   const style = STYLE(options.borderColor || "#7d7d7d");
   const url = options.href || "";
@@ -25,13 +32,13 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       <img src="${data?.logo}" ${inject(style.img, classes.img)}/>
       <span ${inject(style.texts, classes.texts)}>
         <span ${inject(style.title, classes.title)}>
-          ${data.title || options.linkTitle || ""}
+          ${escapeHTML(data.title || options.linkTitle || "")}
         </span>
         <span ${inject(style.domain, classes.domain)}>
-          ${domain || "(Unknown domain)"}
+          ${escapeHTML(domain || "(Unknown domain)")}
         </span>
         <span ${inject(style.description, classes.description)}>
-          ${data.description || ""}
+          ${escapeHTML(data.description || "")}
         </span>
       </span>
     </span>

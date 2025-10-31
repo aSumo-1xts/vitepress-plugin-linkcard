@@ -19,21 +19,6 @@ const containArrSelfLosingHtmlTagReg = (attr: string, tag = "meta") =>
     `<${tag}\\s[^>]*\\w+=['|"]([a-zA-Z]|:|\\s)*${attr}['|"][^>]*\\/?>`
   );
 
-function escapeHTML(str?: string) {
-  if (str) {
-    return str.replace(HtmlEncodeReg, ($0) => {
-      const HtmlEncodeMap = {
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&apos;",
-      };
-      return HtmlEncodeMap[$0 as keyof typeof HtmlEncodeMap];
-    });
-  }
-}
-
 /**
  * @desc get page name
  * @returns
@@ -57,7 +42,7 @@ function matchTitleByMetaTag(htmlString: string) {
     }
   }
 
-  return escapeHTML(title);
+  return title;
 }
 
 /**
@@ -74,7 +59,7 @@ function matchDescriptionByMetaTag(htmlString: string) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) description = content[1];
   }
-  return escapeHTML(description);
+  return description;
 }
 
 /**
