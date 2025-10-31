@@ -42,13 +42,17 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     border: `1px solid ${borderColor}`,
     backgroundColor: bgColor,
     boxSizing: "border-box",
+    width: "100%",
+    height: "150px",
   }),
   img: inlineStyle({
     borderRadius: "12px",
     width: "100%",
-    maxWidth: "240px",
-    height: "auto", // アスペクト比を維持
+    maxWidth: "35%",
+    height: "100%",
     flexShrink: 0,
+    objectFit: "cover",
+    overflow: "hidden",
   }),
   texts: inlineStyle({
     flex: "1 1 0%",
