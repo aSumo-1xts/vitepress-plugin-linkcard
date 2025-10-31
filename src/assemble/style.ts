@@ -29,30 +29,37 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
   a: inlineStyle({
     color: "unset !important",
     display: "block",
-    minWidth: "340px",
+    width: "100%",
     textDecoration: "none",
   }),
   container: inlineStyle({
     display: "flex",
     alignItems: "center",
-    padding: "12px 12px",
+    flexWrap: "wrap",
+    gap: "10px",
+    padding: "12px",
     borderRadius: "12px",
     border: `1px solid ${borderColor}`,
-    backgroundColor: `${bgColor}`,
+    backgroundColor: bgColor,
+    boxSizing: "border-box",
   }),
   img: inlineStyle({
-    marginRight: "14px",
     borderRadius: "12px",
-    width: "240px",
-    height: "126px",
+    width: "100%",
+    maxWidth: "240px",
+    height: "auto", // アスペクト比を維持
+    flexShrink: 0,
   }),
-  texts: inlineStyle({}),
+  texts: inlineStyle({
+    flex: "1 1 0%",
+    minWidth: "0", // ellipsisを有効にするために必要
+  }),
   title: inlineStyle({
     ...ellipsisStyle(2),
     opacity: 1,
     fontSize: "18px",
     lineHeight: "24px",
-    margin: "0px 2px 10px 2px",
+    margin: "0 2px 10px 2px",
     fontWeight: "bold",
   }),
   domain: inlineStyle({
