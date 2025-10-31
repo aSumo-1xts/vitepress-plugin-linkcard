@@ -43,15 +43,14 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     backgroundColor: bgColor,
     boxSizing: "border-box",
     width: "100%",
-    height: "150px",
+    height: "130px",
   }),
   img: inlineStyle({
     borderRadius: "12px",
-    width: "100%",
     maxWidth: "35%",
     height: "100%",
     flexShrink: 0,
-    objectFit: "cover",
+    objectFit: "contain",
     overflow: "hidden",
   }),
   texts: inlineStyle({
@@ -59,7 +58,7 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     minWidth: "0", // ellipsisを有効にするために必要
   }),
   title: inlineStyle({
-    ...ellipsisStyle(2),
+    ...ellipsisStyle(1),
     opacity: 1,
     fontSize: "18px",
     lineHeight: "24px",
