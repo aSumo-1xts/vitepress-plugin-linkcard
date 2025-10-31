@@ -31,6 +31,7 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
         target: pluginOptions.target || "_blank",
         classPrefix: pluginOptions.classPrefix,
         borderColor: pluginOptions.borderColor,
+        bgColor: pluginOptions.bgColor,
       };
 
       return isFunction(pluginOptions.render)

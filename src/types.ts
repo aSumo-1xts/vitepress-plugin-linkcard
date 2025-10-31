@@ -14,6 +14,7 @@ export interface LinkToCardPluginOptions {
   classPrefix?: string /* 卡片 DOM 类名前缀，若设置该项，将不注入内链样式，直接注入相关类目。如，'my-docs__link-card' */;
   render?: CardDomRender /* 自定义渲染 DOM Fragment */;
   borderColor?: string; // 輪郭線の色
+  bgColor?: string; // 背景色
 }
 
 export interface UrlMetadata {
@@ -30,6 +31,7 @@ export interface CardDomRenderOptions {
   target: ATarget;
   classPrefix?: string;
   borderColor?: string;
+  bgColor?: string;
 }
 
 export type CardDomRender = (
