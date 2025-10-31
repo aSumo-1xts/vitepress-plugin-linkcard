@@ -64,6 +64,22 @@ Generates a link card when `@:` appended.
 
 ## Supported options
 
+### borderColor
+
+Specifies the border color of linkcards with a color code. For exmaple:
+
+- `#7d7d7dff` (default)
+- `rgba(3, 147, 147, 0.39)`
+- ...
+
+### bgColor
+
+Specifies the background color of linkcards with a color code. For exmaple:
+
+- `#7d7d7d00` (default)
+- `rgba(3, 147, 147, 0.39)`
+- ...
+
 ### target
 
 Specifies the target window in which to open a link.
@@ -72,11 +88,3 @@ Specifies the target window in which to open a link.
 - `_self`
 - `_top`
 - `_parent`
-
-### borderColor
-
-Specifies the border color of linkcards with a color code. For exmaple:
-
-- `#7d7d7d` (default)
-- `rgba(3, 147, 147, 0.39)`
-- ...

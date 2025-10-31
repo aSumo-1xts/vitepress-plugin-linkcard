@@ -9,6 +9,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     href: `href="${options.href}"`,
     title: `title="${options.linkTitle}"`,
     borderColor: `borderColor="${options.borderColor}"`,
+    bgColor: `bgColor="${options.bgColor}"`,
   };
   const inject = (s: string, c: string) => {
     if (isString(options.classPrefix) && !!options.classPrefix) return c;
@@ -22,7 +23,10 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'");
   const classes = classNames(options.classPrefix);
-  const style = STYLE(options.borderColor || "#7d7d7d");
+  const style = STYLE(
+    options.borderColor || "#7d7d7dff",
+    options.bgColor || "#7d7d7d00"
+  );
   const url = options.href || "";
   const domain = new URL(url).origin
     .replace(/^https?:\/\//, "")
