@@ -1,5 +1,4 @@
 import type { CardDomRender } from "../types";
-import { isString } from "@luckrya/utility";
 import { classNames, STYLE } from "./style";
 
 export const generateCardDomFragment: CardDomRender = (data, options) => {
@@ -12,7 +11,6 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     bgColor: `bgColor="${options.bgColor}"`,
   };
   const inject = (s: string, c: string) => {
-    if (isString(options.classPrefix) && !!options.classPrefix) return c;
     return s;
   };
   const escapeHTML = (str: string) =>
@@ -28,7 +26,9 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     options.bgColor || "#7d7d7d00"
   );
   const url = options.href || "";
-  const domain = new URL(url).origin;
+  const domain = new URL(url).origin
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "");
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
