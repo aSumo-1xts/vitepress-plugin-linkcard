@@ -22,6 +22,8 @@ const ellipsisStyle = (line: number) => ({
   display: "-webkit-box",
   overflow: "hidden",
   textOverflow: "ellipsis",
+  wordBreak: "break-all",
+  overflowWrap: "anywhere",
 });
 
 // See: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue
@@ -47,7 +49,7 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
   }),
   img: inlineStyle({
     borderRadius: "12px",
-    maxWidth: "35%",
+    maxWidth: "40%",
     height: "100%",
     flexShrink: 0,
     objectFit: "contain",
