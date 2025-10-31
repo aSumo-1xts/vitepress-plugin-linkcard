@@ -4,18 +4,18 @@ vitepress-plugin-linkcard
 
 <div align="center">
 
-[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/)
+![NPM Version](https://img.shields.io/npm/v/vitepress-plugin-linkcard?style=flat&logo=npm&logoColor=white&labelColor=CB3837&color=CB3837&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fvitepress-plugin-linkcard)
 [![Vitepress](https://img.shields.io/badge/Vitepress-5C73E7?logo=vitepress&logoColor=white)](https://vitepress.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](/LICENSE)
 
-**A VitePress plugin to generate pretty link cards.**
+**A VitePress plugin to generate pretty linkcards.**
 
 **This plugin was forked from [markdown-it-link-to-card](https://github.com/luckrya/markdown-it-link-to-card).**
 
 </div>
 
 <p align="center">
-  <a href="https://github.com/asumo-1xts/vitepress-plugin-linkcard/blob/main/image/screen.png?raw=true">
+  <a href="https://github.com/asumo-1xts/vitepress-plugin-linkcard/blob/main/image/screen.webp?raw=true">
     <img width="75%" src="https://github.com/asumo-1xts/vitepress-plugin-linkcard/blob/main/image/screen.webp?raw=true" />
   </a>
 </p>
