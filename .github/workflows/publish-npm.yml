@@ -22,6 +22,6 @@ jobs:
           corepack prepare yarn@4.9.2 --activate
           yarn install --immutable
           yarn build
-          yarn npm publish --provenance --access public
+          yarn npm publish --access public
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
