@@ -15,7 +15,7 @@ function inlineStyle(style: Record<string, string | number>) {
   return `style="${join(style)}"`;
 }
 
-const ellipsisStyle = (line: number = 3) => ({
+const ellipsisStyle = (line: number) => ({
   "-webkit-box-orient": "vertical",
   "-webkit-line-clamp": line,
   lineClamp: line,
@@ -40,7 +40,7 @@ export const STYLE = (color: string) => ({
     border: `1px solid ${color}`,
   }),
   img: inlineStyle({
-    marginRight: "12px",
+    marginRight: "14px",
     borderRadius: "12px",
     width: "240px",
     height: "126px",
@@ -51,15 +51,22 @@ export const STYLE = (color: string) => ({
     opacity: 1,
     fontSize: "18px",
     lineHeight: "24px",
-    margin: "2px 2px 12px 2px",
+    margin: "0px 2px 10px 2px",
     fontWeight: "bold",
   }),
+  domain: inlineStyle({
+    ...ellipsisStyle(1),
+    opacity: 1,
+    fontSize: "14px",
+    lineHeight: "18px",
+    margin: "10px 2px 10px 2px",
+  }),
   description: inlineStyle({
-    ...ellipsisStyle(),
+    ...ellipsisStyle(2),
     opacity: 0.8,
     fontSize: "14px",
-    lineHeight: "20px",
-    margin: "12px 2px 2px 2px",
+    lineHeight: "18px",
+    margin: "10px 2px 0px 2px",
   }),
 });
 
@@ -68,5 +75,6 @@ export const classNames = (prefix?: string) => ({
   img: `${prefix}__img`,
   texts: `${prefix}__texts`,
   title: `${prefix}__texts--title`,
+  domain: `${prefix}__texts--domain`,
   description: `${prefix}__texts--desc`,
 });

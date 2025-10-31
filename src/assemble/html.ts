@@ -16,6 +16,8 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
   };
   const classes = classNames(options.classPrefix);
   const style = STYLE(options.borderColor || "#7d7d7d");
+  const url = options.href || "";
+  const domain = new URL(url).origin;
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
@@ -24,6 +26,9 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       <span ${inject(style.texts, classes.texts)}>
         <span ${inject(style.title, classes.title)}>
           ${data.title || options.linkTitle || ""}
+        </span>
+        <span ${inject(style.domain, classes.domain)}>
+          ${domain || "(Unknown domain)"}
         </span>
         <span ${inject(style.description, classes.description)}>
           ${data.description || ""}
