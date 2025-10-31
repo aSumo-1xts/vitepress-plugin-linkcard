@@ -4,6 +4,7 @@ vitepress-plugin-linkcard
 
 <div align="center">
 
+[![Publish to npmjs](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/publish-npm.yml/badge.svg)](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/publish-npm.yml)
 [![NPM Version](https://img.shields.io/npm/v/vitepress-plugin-linkcard?style=flat&logo=npm&logoColor=white&labelColor=CB3837&color=CB3837&link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fvitepress-plugin-linkcard)](https://www.npmjs.com/package/vitepress-plugin-linkcard)
 [![Vitepress](https://img.shields.io/badge/Vitepress-5C73E7?logo=vitepress&logoColor=white)](https://vitepress.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](/LICENSE)
