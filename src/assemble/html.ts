@@ -28,14 +28,11 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     options.bgColor || "#7d7d7d00"
   );
   const url = options.href || "";
-  const domain = new URL(url).origin
-    .replace(/^https?:\/\//, "")
-    .replace(/^www\./, "");
+  const domain = new URL(url).origin;
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
     <span ${inject(style.container, classes.container)}>
-      <img src="${data?.logo}" ${inject(style.img, classes.img)}/>
       <span ${inject(style.texts, classes.texts)}>
         <span ${inject(style.title, classes.title)}>
           ${escapeHTML(data.title || "")}
@@ -47,6 +44,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
           ${escapeHTML(data.description || "")}
         </span>
       </span>
+      <img src="${data?.logo}" ${inject(style.img, classes.img)}/>
     </span>
   </a>
 </span>`;

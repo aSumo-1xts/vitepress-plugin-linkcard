@@ -39,7 +39,6 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     alignItems: "center",
     flexWrap: "wrap",
     gap: "10px",
-    padding: "12px",
     borderRadius: "12px",
     border: `1px solid ${borderColor}`,
     backgroundColor: bgColor,
@@ -48,9 +47,9 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     height: "130px",
   }),
   img: inlineStyle({
-    borderRadius: "12px",
+    borderRadius: "0px 12px 12px 0px",
     maxWidth: "40%",
-    height: "100%",
+    height: "128px", // container.height - 2px
     flexShrink: 0,
     objectFit: "contain",
     overflow: "hidden",
@@ -64,7 +63,7 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     opacity: 1,
     fontSize: "18px",
     lineHeight: "24px",
-    margin: "0 2px 10px 2px",
+    margin: "0 12px 10px 16px",
     fontWeight: "bold",
   }),
   domain: inlineStyle({
@@ -72,7 +71,7 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     opacity: 1,
     fontSize: "14px",
     lineHeight: "18px",
-    margin: "10px 2px 10px 2px",
+    margin: "10px 12px 10px 16px",
     textDecoration: "underline",
   }),
   description: inlineStyle({
@@ -80,7 +79,7 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     opacity: 0.8,
     fontSize: "14px",
     lineHeight: "18px",
-    margin: "10px 2px 0px 2px",
+    margin: "10px 12px 0px 16px",
   }),
 });
 
