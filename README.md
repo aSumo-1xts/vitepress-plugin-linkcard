@@ -7,7 +7,7 @@ vitepress-plugin-linkcard
 [![NPM](https://nodei.co/npm/vitepress-plugin-linkcard.svg?style=compact)](https://www.npmjs.com/package/vitepress-plugin-linkcard)
 
 [![Yarn](https://img.shields.io/badge/Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
-[![VitePress](https://img.shields.io/badge/VitePress-1.6.4-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
+[![VitePress](https://img.shields.io/badge/VitePress-v1.6.4-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](/LICENSE)
 
 </div>
