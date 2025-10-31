@@ -7,7 +7,6 @@ import { isString } from "@luckrya/utility";
 import { cleanPath, extractUrl } from "./url";
 
 const DEFAULT_LOGO = "https://resources.whatwg.org/logo-url.svg";
-const HtmlEncodeReg = /[&<>"']/g;
 const HtmlTagContentReg = /(<[A-Za-z]+\s*[^>]*>(.*)<\/[A-Za-z]+>)/;
 const ContentAttrValueHtmlMetaTagReg = /content=["|']([^>]*)["|']/;
 const HrefAttrValueHtmlLinkTagReg = /href=["|']([^>]*)["|']/;

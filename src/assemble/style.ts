@@ -60,6 +60,7 @@ export const STYLE = (color: string) => ({
     fontSize: "14px",
     lineHeight: "18px",
     margin: "10px 2px 10px 2px",
+    textDecoration: "underline",
   }),
   description: inlineStyle({
     ...ellipsisStyle(2),
