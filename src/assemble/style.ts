@@ -15,7 +15,7 @@ function inlineStyle(style: Record<string, string | number>) {
   return `style="${join(style)}"`;
 }
 
-const ellipsisStyle = (line: number = 3) => ({
+const ellipsisStyle = (line: number) => ({
   "-webkit-box-orient": "vertical",
   "-webkit-line-clamp": line,
   lineClamp: line,
@@ -25,7 +25,7 @@ const ellipsisStyle = (line: number = 3) => ({
 });
 
 // See: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue
-export const STYLE = {
+export const STYLE = (color: string) => ({
   a: inlineStyle({
     color: "unset !important",
     display: "block",
@@ -37,10 +37,10 @@ export const STYLE = {
     alignItems: "center",
     padding: "12px 12px",
     borderRadius: "12px",
-    border: "1px solid #7d7d7d", // TODO : make changeable
+    border: `1px solid ${color}`,
   }),
   img: inlineStyle({
-    marginRight: "12px",
+    marginRight: "14px",
     borderRadius: "12px",
     width: "240px",
     height: "126px",
@@ -51,22 +51,31 @@ export const STYLE = {
     opacity: 1,
     fontSize: "18px",
     lineHeight: "24px",
-    margin: "2px 2px 12px 2px",
+    margin: "0px 2px 10px 2px",
     fontWeight: "bold",
   }),
+  domain: inlineStyle({
+    ...ellipsisStyle(1),
+    opacity: 1,
+    fontSize: "14px",
+    lineHeight: "18px",
+    margin: "10px 2px 10px 2px",
+    textDecoration: "underline",
+  }),
   description: inlineStyle({
-    ...ellipsisStyle(),
+    ...ellipsisStyle(2),
     opacity: 0.8,
     fontSize: "14px",
-    lineHeight: "20px",
-    margin: "12px 2px 2px 2px",
+    lineHeight: "18px",
+    margin: "10px 2px 0px 2px",
   }),
-};
+});
 
 export const classNames = (prefix?: string) => ({
   container: `${prefix}__container`,
   img: `${prefix}__img`,
   texts: `${prefix}__texts`,
   title: `${prefix}__texts--title`,
+  domain: `${prefix}__texts--domain`,
   description: `${prefix}__texts--desc`,
 });

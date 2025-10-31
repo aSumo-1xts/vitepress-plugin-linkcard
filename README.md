@@ -16,7 +16,7 @@ vitepress-plugin-linkcard
 
 <p align="center">
   <a href="https://github.com/asumo-1xts/vitepress-plugin-linkcard/blob/main/image/screen.png?raw=true">
-    <img width="75%" src="https://github.com/asumo-1xts/vitepress-plugin-linkcard/blob/main/image/screen.png?raw=true" />
+    <img width="75%" src="https://github.com/asumo-1xts/vitepress-plugin-linkcard/blob/main/image/screen.webp?raw=true" />
   </a>
 </p>
 
@@ -43,7 +43,11 @@ export default defineConfig({
   // ...
   markdown: {
     config: (md) => {
-      md.use<LinkToCardPluginOptions>(linkToCardPlugin, {});
+      md.use<LinkToCardPluginOptions>(linkToCardPlugin, {
+        // // options:
+        // target: "_self",
+        // borderColor: "#cc0000",
+      });
     },
   }
   // ...
@@ -52,6 +56,27 @@ export default defineConfig({
 
 #### `*.md`
 
+Generates a link card when `@:` appended.
+
 ```md
 [example](@:https://example.com)
 ```
+
+## Supported options
+
+### target
+
+Specifies the target window in which to open a link.
+
+- `_blank` (default)
+- `_self`
+- `_top`
+- `_parent`
+
+### borderColor
+
+Specifies the border color of linkcards with a color code. For exmaple:
+
+- `#7d7d7d` (default)
+- `rgba(3, 147, 147, 0.39)`
+- ...

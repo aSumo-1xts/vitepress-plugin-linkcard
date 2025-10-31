@@ -8,13 +8,25 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     target: `target="${options.target}"`,
     href: `href="${options.href}"`,
     title: `title="${options.linkTitle}"`,
+    borderColor: `borderColor="${options.borderColor}"`,
   };
   const inject = (s: string, c: string) => {
     if (isString(options.classPrefix) && !!options.classPrefix) return c;
     return s;
   };
+  const escapeHTML = (str: string) =>
+    str
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'");
   const classes = classNames(options.classPrefix);
-  const style = STYLE;
+  const style = STYLE(options.borderColor || "#7d7d7d");
+  const url = options.href || "";
+  const domain = new URL(url).origin
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "");
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
@@ -22,10 +34,13 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       <img src="${data?.logo}" ${inject(style.img, classes.img)}/>
       <span ${inject(style.texts, classes.texts)}>
         <span ${inject(style.title, classes.title)}>
-          ${data.title || options.linkTitle || ""}
+          ${escapeHTML(data.title || "")}
+        </span>
+        <span ${inject(style.domain, classes.domain)}>
+          ${escapeHTML(domain || "(Unknown domain)")}
         </span>
         <span ${inject(style.description, classes.description)}>
-          ${data.description || ""}
+          ${escapeHTML(data.description || "")}
         </span>
       </span>
     </span>
