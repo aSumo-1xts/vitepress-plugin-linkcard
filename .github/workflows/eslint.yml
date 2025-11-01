@@ -25,7 +25,6 @@ jobs:
       - name: Run ESLint
         uses: sibiraj-s/action-eslint@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # optional
           eslint-args: "--config .vscode/eslint.config.ts src/"
           extensions: "js,jsx,ts,tsx"
           annotations: true
