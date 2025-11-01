@@ -3,8 +3,7 @@ import type MarkdownIt from "markdown-it";
 export type LinkToCardPlugin =
   MarkdownIt.PluginWithOptions<LinkToCardPluginOptions>;
 
-/**
- * @reference
+/*
  *   - https://daringfireball.net/projects/markdown/syntax#link
  *   - https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/title
  *   - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target

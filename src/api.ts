@@ -10,6 +10,12 @@ interface CardResponse {
   dom: string;
 }
 
+/**
+ *
+ * @param url
+ * @param options
+ * @returns
+ */
 export function generateCard(
   url: string,
   options: Omit<CardDomRenderOptions, "href">

@@ -19,7 +19,7 @@ const containArrSelfLosingHtmlTagReg = (attr: string, tag = "meta") =>
   );
 
 /**
- * @desc get page name
+ * @param htmlString
  * @returns
  *   <title>$value</title>
  *   <meta property="og:title" content="$value" />
@@ -45,7 +45,6 @@ function matchTitleByMetaTag(htmlString: string) {
 }
 
 /**
- * @desc get page description
  * @returns
  *   <meta name="description" content="$value" />
  *   <meta property="og:description" content="$value" />
@@ -62,7 +61,6 @@ function matchDescriptionByMetaTag(htmlString: string) {
 }
 
 /**
- * @desc get page logo
  * @returns
  *   <meta property="og:image" content="$value" />
  *   <link rel="icon" href="$value">
@@ -89,6 +87,12 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
   return logo;
 }
 
+/**
+ *
+ * @param htmlString
+ * @param url
+ * @returns
+ */
 export function parserMetadata(
   htmlString: string,
   url: string
@@ -110,6 +114,11 @@ export function parserMetadata(
   else return metadata;
 }
 
+/**
+ *
+ * @param obj
+ * @returns
+ */
 function isEmptyStringObject(obj: Record<string, string | undefined>) {
   return !Object.values(obj).filter((v) => isString(v)).length;
 }

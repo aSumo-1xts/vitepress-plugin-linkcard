@@ -4,6 +4,11 @@ import LocalFileCache from "./local-file-cache";
 
 const cache = new LocalFileCache<UrlMetadata>();
 
+/**
+ *
+ * @param url
+ * @returns
+ */
 export function getUrlMetadata(url: string) {
   if (cache.has(url)) return cache.get(url);
   let metadata: UrlMetadata | null = null;

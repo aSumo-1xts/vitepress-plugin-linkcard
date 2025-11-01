@@ -1,6 +1,11 @@
 import type { CardDomRender } from "../types";
 import { classNames, STYLE } from "./style";
 
+/**
+ * @param data
+ * @param options
+ * @returns
+ */
 export const generateCardDomFragment: CardDomRender = (data, options) => {
   const aa = {
     rel: `rel="noopener noreferrer"`,
