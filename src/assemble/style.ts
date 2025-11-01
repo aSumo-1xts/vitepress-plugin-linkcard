@@ -64,23 +64,23 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     opacity: 1,
     fontSize: "16px",
     lineHeight: "22px",
-    margin: "0 12px 8px 16px",
+    margin: "0 16px 8px 16px",
     fontWeight: "bold",
   }),
   domain: inlineStyle({
     ...ellipsisStyle(1),
     opacity: 1,
     fontSize: "13px",
-    lineHeight: "17px",
-    margin: "8px 12px 8px 16px",
+    lineHeight: "16px",
+    margin: "8px 16px 8px 16px",
     textDecoration: "underline",
   }),
   description: inlineStyle({
     ...ellipsisStyle(2),
     opacity: 0.8,
     fontSize: "13px",
-    lineHeight: "17px",
-    margin: "8px 12px 0px 16px",
+    lineHeight: "16px",
+    margin: "8px 16px 0px 16px",
   }),
 });
 
