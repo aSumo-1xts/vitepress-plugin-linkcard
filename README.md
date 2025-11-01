@@ -20,8 +20,6 @@ vitepress-plugin-linkcard
 
 <div align="center">
 
-**A VitePress plugin to generate pretty linkcards.**
-
 **This plugin was forked from [markdown-it-link-to-card](https://github.com/luckrya/markdown-it-link-to-card).**
 
 </div>
@@ -95,3 +93,14 @@ Specifies the target window in which to open a link.
 - `_self`
 - `_top`
 - `_parent`
+
+## Other specifications
+
+### Special handling for `github.com`
+
+When the domain is `github.com`, trimming is performed as shown in the following example to avoid duplication of the title and description.
+| | Title | Description |
+| - | - | - |
+| Before | GitHub - asumo-1xts/vitepress-plugin-linkcard: A VitePress plugin to generate pretty link cards. | A VitePress plugin to generate pretty link cards. Contribute to asumo-1xts/vitepress-plugin-linkcard development by creating an account on GitHub. |
+| After | asumo-1xts/vitepress-plugin-linkcard | A VitePress plugin to generate pretty link cards. |
+
