@@ -1,5 +1,5 @@
 // Refactor: xmlhttprequest will be replaced later
-// @ts-ignore
+// @ts-expect-error: xmlhttprequest has no types
 import xhrForNode from "xmlhttprequest";
 import { inBrowser, isString } from "@luckrya/utility";
 
@@ -7,6 +7,10 @@ import { inBrowser, isString } from "@luckrya/utility";
 const cache = new Map<string, string>();
 const XHR = inBrowser ? window.XMLHttpRequest : xhrForNode.XMLHttpRequest;
 
+/**
+ * @param url
+ * @returns
+ */
 export function sync(url: string) {
   if (cache.has(url)) return cache.get(url);
   let result: string | undefined;
@@ -34,6 +38,10 @@ export function sync(url: string) {
   return result;
 }
 
+/**
+ * @param url
+ * @returns
+ */
 export function async(url: string): Promise<string | undefined> {
   return new Promise((resolve, reject) => {
     try {

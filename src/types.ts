@@ -3,8 +3,7 @@ import type MarkdownIt from "markdown-it";
 export type LinkToCardPlugin =
   MarkdownIt.PluginWithOptions<LinkToCardPluginOptions>;
 
-/**
- * @reference
+/*
  *   - https://daringfireball.net/projects/markdown/syntax#link
  *   - https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/title
  *   - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-target
@@ -21,6 +20,7 @@ export interface UrlMetadata {
   title?: string;
   description?: string;
   logo?: string;
+  [key: string]: unknown; // Add index signature to satisfy Record<string, unknown>
 }
 
 export type ATarget = "_self" | "_blank" | "_top" | "_parent";

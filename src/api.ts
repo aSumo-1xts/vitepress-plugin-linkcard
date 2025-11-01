@@ -10,11 +10,16 @@ interface CardResponse {
   dom: string;
 }
 
+/**
+ * @param url
+ * @param options
+ * @returns
+ */
 export function generateCard(
   url: string,
   options: Omit<CardDomRenderOptions, "href">
 ): Promise<CardResponse> {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const htmlString = xhr.sync(url);
 
     if (htmlString) {

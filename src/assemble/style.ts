@@ -1,7 +1,15 @@
+/**
+ * @param str
+ * @returns
+ */
 function hyphenate(str: string): string {
   return str.replace(/\B([A-Z])/g, "-$1").toLowerCase();
 }
 
+/**
+ * @param style
+ * @returns
+ */
 function join(style: Record<string, string | number>) {
   return Object.entries(style)
     .map(([k, v]) => {
@@ -11,10 +19,18 @@ function join(style: Record<string, string | number>) {
     .join(" ");
 }
 
+/**
+ * @param style
+ * @returns
+ */
 function inlineStyle(style: Record<string, string | number>) {
   return `style="${join(style)}"`;
 }
 
+/**
+ * @param line
+ * @returns
+ */
 const ellipsisStyle = (line: number) => ({
   "-webkit-box-orient": "vertical",
   "-webkit-line-clamp": line,
@@ -27,7 +43,12 @@ const ellipsisStyle = (line: number) => ({
   wordBreak: "break-word",
 });
 
-// See: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue
+/**
+ See: * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue
+ * @param borderColor 
+ * @param bgColor 
+ * @returns 
+ */
 export const STYLE = (borderColor: string, bgColor: string) => ({
   a: inlineStyle({
     color: "unset !important",
@@ -84,6 +105,10 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
   }),
 });
 
+/**
+ * @param prefix
+ * @returns
+ */
 export const classNames = (prefix?: string) => ({
   container: `${prefix}__container`,
   img: `${prefix}__img`,

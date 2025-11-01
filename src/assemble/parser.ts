@@ -19,7 +19,7 @@ const containArrSelfLosingHtmlTagReg = (attr: string, tag = "meta") =>
   );
 
 /**
- * @desc get page name
+ * @param htmlString
  * @returns
  *   <title>$value</title>
  *   <meta property="og:title" content="$value" />
@@ -29,13 +29,13 @@ function matchTitleByMetaTag(htmlString: string) {
   let title: string | undefined;
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("title"));
 
-  if (!!metas?.length) {
+  if (metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) title = content[1];
   } else {
     const titleHtmlTag = htmlString.match(HtmlTitleTagReg);
 
-    if (!!titleHtmlTag?.length) {
+    if (titleHtmlTag?.length) {
       const content = titleHtmlTag[0].match(HtmlTagContentReg);
       if (content && isString(content[2])) title = content[2];
     }
@@ -45,7 +45,6 @@ function matchTitleByMetaTag(htmlString: string) {
 }
 
 /**
- * @desc get page description
  * @returns
  *   <meta name="description" content="$value" />
  *   <meta property="og:description" content="$value" />
@@ -54,7 +53,7 @@ function matchDescriptionByMetaTag(htmlString: string) {
   let description: string | undefined;
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("description"));
 
-  if (!!metas?.length) {
+  if (metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) description = content[1];
   }
@@ -62,7 +61,6 @@ function matchDescriptionByMetaTag(htmlString: string) {
 }
 
 /**
- * @desc get page logo
  * @returns
  *   <meta property="og:image" content="$value" />
  *   <link rel="icon" href="$value">
@@ -71,7 +69,7 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
   let logo: string | undefined;
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("image"));
 
-  if (!!metas?.length) {
+  if (metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) logo = content[1];
   } else {
@@ -79,7 +77,7 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
       containArrSelfLosingHtmlTagReg("icon", "link")
     );
 
-    if (!!linkHtmlTags?.length) {
+    if (linkHtmlTags?.length) {
       const content = linkHtmlTags[0].match(HrefAttrValueHtmlLinkTagReg);
       // logo 判断是否是完整地址
       if (content && isString(content[1])) logo = content[1];
@@ -89,6 +87,11 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
   return logo;
 }
 
+/**
+ * @param htmlString
+ * @param url
+ * @returns
+ */
 export function parserMetadata(
   htmlString: string,
   url: string
@@ -110,6 +113,10 @@ export function parserMetadata(
   else return metadata;
 }
 
+/**
+ * @param obj
+ * @returns
+ */
 function isEmptyStringObject(obj: Record<string, string | undefined>) {
   return !Object.values(obj).filter((v) => isString(v)).length;
 }

@@ -1,0 +1,12 @@
+{
+  "entryPoints": ["src"],
+  "entryPointStrategy": "expand",
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "name": "vitepress-plugin-linkcard",
+  "out": "docs/",
+  "plugin": ["typedoc-theme-hierarchy"],
+  "theme": "hierarchy",
+  "tsconfig": "./tsconfig.json"
+}

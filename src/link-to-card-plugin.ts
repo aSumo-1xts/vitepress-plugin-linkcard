@@ -1,9 +1,12 @@
 import type { LinkToCardPlugin } from "./types";
 import type Token from "markdown-it/lib/token";
-
 import { isFunction } from "@luckrya/utility";
 import { getUrlMetadata, generateCardDomFragment } from "./assemble";
 
+/**
+ * @param md
+ * @param pluginOptions
+ */
 export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
   function parseCardLinkHref(href?: string) {
     const tagRegexp = new RegExp(`^(${"@"}:)([a-zA-Z0-9]+.*)`);
@@ -15,6 +18,10 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
     };
   }
 
+  /**
+   * @param options
+   * @returns
+   */
   function assembleCardTpl(options: {
     url: string;
     tokens: Token[];
@@ -40,7 +47,13 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
     }
   }
 
-  // https://markdown-it.github.io/markdown-it/#MarkdownIt.renderInline
+  /**
+   * https://markdown-it.github.io/markdown-it/#MarkdownIt.renderInline
+   * @param tokens
+   * @param rootOptions
+   * @param env
+   * @returns
+   */
   md.renderer.renderInline = (tokens, rootOptions, env) => {
     let result = "";
 
@@ -60,7 +73,15 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
     return result;
   };
 
-  // ↓ envは呼ばれなくても消さないこと
+  /**
+   * envは呼ばれなくても消さないこと
+   * @param tokens
+   * @param i
+   * @param rootOptions
+   * @param env
+   * @param self
+   * @returns
+   */
   md.renderer.rules.link_open = (tokens, i, rootOptions, env, self) => {
     const token = tokens[i];
     const isLinkOpenToken = token.tag === "a" && token.type === "link_open";
@@ -76,15 +97,21 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
   };
 };
 
-// TODO: handle softbreak https://markdown-it.github.io/
-// []()
-// []()
+/**
+ * TODO: handle softbreak https://markdown-it.github.io/
+ * @param tokens
+ * @param i
+ */
 function ignoreRestToken(tokens: Token[], i: number) {
   tokens.forEach((token, index) => {
     if (index !== i) token.hidden = true;
   });
 }
 
+/**
+ * @param tokens
+ * @returns
+ */
 function joinLinkTitle(tokens: Token[]) {
   return tokens
     .map(({ hidden, content }) => {
