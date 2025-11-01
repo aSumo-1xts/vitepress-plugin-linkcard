@@ -4,20 +4,26 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "src/**/*"
 
 jobs:
   run-eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: |
+      - name: Install dependencies
+        run: |
           corepack enable
           corepack prepare yarn@4.9.2 --activate
           yarn install --immutable
-      - uses: sibiraj-s/action-eslint@v4
+      - name: Run ESLint
+        uses: sibiraj-s/action-eslint@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # optional
           eslint-args: "--config .vscode/eslint.config.ts src/"
