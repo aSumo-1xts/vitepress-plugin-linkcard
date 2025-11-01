@@ -1,6 +1,5 @@
 .yarn/
 dist/
-node_modules/
 types/
 .pnp.*
-.yarnrc.yml
+typedoc.json
