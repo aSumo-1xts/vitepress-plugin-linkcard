@@ -48,8 +48,6 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@types/markdown-it": "^13.0.2",
     "@types/node": "^24.9.2",
-    "@typescript-eslint/eslint-plugin": "^8.46.2",
-    "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^9.39.0",
     "eslint-plugin-vue": "^10.5.1",
     "globals": "^16.5.0",
