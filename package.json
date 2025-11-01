@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "A vitepress-plugin to generate pretty link cards with OGP.",
   "main": "./dist/.esm.min.js",
   "module": "./dist/.esm.min.js",
@@ -16,7 +16,8 @@
     "build": "tsc && rollup -c",
     "clean": "rm -rf dist types",
     "dev": "rollup -c -w",
-    "type:dts": "tsc --emitDeclarationOnly"
+    "type:dts": "tsc --emitDeclarationOnly",
+    "lint": "yarn eslint --config .vscode/eslint.config.ts src/"
   },
   "repository": {
     "type": "git",
@@ -52,6 +53,7 @@
     "eslint": "^9.39.0",
     "eslint-plugin-vue": "^10.5.1",
     "globals": "^16.5.0",
+    "jiti": "^2.6.1",
     "markdown-it": "^13.0.2",
     "npm-check-updates": "^19.1.2",
     "rollup": "^2.79.2",

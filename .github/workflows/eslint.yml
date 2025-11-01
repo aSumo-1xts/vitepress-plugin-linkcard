@@ -1,0 +1,25 @@
+name: ESLint CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: |
+          corepack enable
+          corepack prepare yarn@4.9.2 --activate
+          yarn install --immutable
+      - uses: sibiraj-s/action-eslint@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # optional
+          eslint-args: "--config .vscode/eslint.config.ts src/"
+          extensions: "js,jsx,ts,tsx"
+          annotations: true
