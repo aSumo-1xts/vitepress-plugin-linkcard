@@ -88,7 +88,6 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
 }
 
 /**
- *
  * @param htmlString
  * @param url
  * @returns
@@ -115,7 +114,6 @@ export function parserMetadata(
 }
 
 /**
- *
  * @param obj
  * @returns
  */

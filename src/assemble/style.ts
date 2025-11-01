@@ -1,5 +1,4 @@
 /**
- *
  * @param str
  * @returns
  */
@@ -8,7 +7,6 @@ function hyphenate(str: string): string {
 }
 
 /**
- *
  * @param style
  * @returns
  */
@@ -22,7 +20,6 @@ function join(style: Record<string, string | number>) {
 }
 
 /**
- *
  * @param style
  * @returns
  */
@@ -109,7 +106,6 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
 });
 
 /**
- *
  * @param prefix
  * @returns
  */

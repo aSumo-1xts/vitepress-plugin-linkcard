@@ -8,7 +8,6 @@ const cache = new Map<string, string>();
 const XHR = inBrowser ? window.XMLHttpRequest : xhrForNode.XMLHttpRequest;
 
 /**
- *
  * @param url
  * @returns
  */
@@ -40,7 +39,6 @@ export function sync(url: string) {
 }
 
 /**
- *
  * @param url
  * @returns
  */

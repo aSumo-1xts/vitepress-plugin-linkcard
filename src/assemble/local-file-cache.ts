@@ -6,6 +6,9 @@ const CONFIG_FILE = () => `${process.cwd()}/.linkcardrc`;
 export default class LocalFileCache<V extends Record<string, unknown>> {
   constructor() {}
 
+  /**
+   * @param data
+   */
   private setFile(data: Record<string, V>) {
     let content = data;
     const _content = this.readFile();
@@ -15,6 +18,9 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
     fs.writeFileSync(CONFIG_FILE(), JSON.stringify(content));
   }
 
+  /**
+   * @returns
+   */
   private readFile(): Record<string, V> | undefined {
     const content = fs.readFileSync(CONFIG_FILE(), "utf-8");
     const data = JSON.parse(content);
@@ -23,15 +29,27 @@ export default class LocalFileCache<V extends Record<string, unknown>> {
     return undefined;
   }
 
+  /**
+   * @param url
+   * @returns
+   */
   has(url: string) {
     return !!this.get(url);
   }
 
+  /**
+   * @param url
+   * @returns
+   */
   get(url: string) {
     const cache = this.readFile();
     return cache?.[url];
   }
 
+  /**
+   * @param url
+   * @param data
+   */
   set(url: string, data: V) {
     this.setFile({ [url]: data });
   }

@@ -11,7 +11,6 @@ interface CardResponse {
 }
 
 /**
- *
  * @param url
  * @param options
  * @returns

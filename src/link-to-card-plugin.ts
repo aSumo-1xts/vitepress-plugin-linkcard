@@ -4,7 +4,6 @@ import { isFunction } from "@luckrya/utility";
 import { getUrlMetadata, generateCardDomFragment } from "./assemble";
 
 /**
- *
  * @param md
  * @param pluginOptions
  */
@@ -20,7 +19,6 @@ export const linkToCardPlugin: LinkToCardPlugin = (md, pluginOptions = {}) => {
   }
 
   /**
-   *
    * @param options
    * @returns
    */
@@ -111,7 +109,6 @@ function ignoreRestToken(tokens: Token[], i: number) {
 }
 
 /**
- *
  * @param tokens
  * @returns
  */

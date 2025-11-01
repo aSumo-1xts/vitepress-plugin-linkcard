@@ -1,5 +1,4 @@
 /**
- *
  * @param url
  * @returns
  */
@@ -8,7 +7,6 @@ export function extractUrl(url: string) {
 }
 
 /**
- *
  * @param path
  * @returns
  */
