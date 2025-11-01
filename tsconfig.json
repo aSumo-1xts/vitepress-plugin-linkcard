@@ -3,7 +3,7 @@
     "lib": ["esnext", "dom"],
     "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     "module": "ESNext" /* Specify what module code is generated. */,
-    "rootDir": "./src" /* Specify the root folder within your source files. */,
+    "rootDir": "src" /* Specify the root folder within your source files. */,
     "declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
     "declarationMap": false /* Create sourcemaps for d.ts files. */,
     "outDir": "./dist" /* Specify an output folder for all emitted files. */,
