@@ -1,12 +1,11 @@
 name: Prettier CI
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-
-permissions:
-  contents: write
+    paths:
+      - "src/**/*"
 
 jobs:
   run-prettier:
@@ -15,10 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          fetch-depth: 0
       - name: Prettify code
         uses: creyD/prettier_action@v4.6
         with:
           working_directory: src/
           prettier_options: --write src/**/*
-          commit_message: "auto: Formatted by Prettier"
+          same_commit: true

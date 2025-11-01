@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "src/**/*"
 
 jobs:
   build-and-deploy:
@@ -19,7 +21,7 @@ jobs:
         run: |
           corepack enable
           corepack prepare yarn@4.9.2 --activate
-          yarn install --immutable
+          yarn add -D typedoc typedoc-theme-hierarchy
           yarn typedoc
       # ここまでテンプレ
       #
