@@ -9,8 +9,8 @@ import { terser } from "rollup-plugin-terser";
  * @desc Rollup 配置
  * @type {(commandLineArgs: {_: string[];[k: string]: string | number | boolean }) => import('rollup').RollupOptions}
  */
-export default (commandLineArgs) => ({
-  input: path.resolve(__dirname, "src/index.ts"),
+export default () => ({
+  input: path.resolve("src/index.ts"),
 
   plugins: [
     nodeResolve({ extensions: [".ts", ".js", ".json"] }),
@@ -25,7 +25,6 @@ export default (commandLineArgs) => ({
 
   output: MODULE_FORMATES.map((format) => ({
     file: path.resolve(
-      __dirname,
       `dist/${PKG_SUB_SCOPE_NAME}.${format}.min.js`
     ),
     name: PKG_SUB_SCOPE_NAME.toLocaleUpperCase(),
