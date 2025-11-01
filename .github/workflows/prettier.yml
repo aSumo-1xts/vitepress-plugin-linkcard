@@ -1,0 +1,19 @@
+name: Prettier CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-prettier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.6
+        with:
+          working_directory: src/
+          prettier_options: --write src/**/*
+          commit_message: "auto: Formatted by Prettier"

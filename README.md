@@ -6,9 +6,13 @@ vitepress-plugin-linkcard
 
 [![NPM](https://nodei.co/npm/vitepress-plugin-linkcard.svg?style=compact)](https://www.npmjs.com/package/vitepress-plugin-linkcard)
 
-[![Yarn](https://img.shields.io/badge/Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
-[![VitePress](https://img.shields.io/badge/VitePress-v1.6.4-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
+[![Yarn](https://img.shields.io/badge/Built_with_Yarn-v4.9.2-%232C8EBB?logo=yarn&logoColor=white)](https://yarnpkg.com/)
+[![VitePress](https://img.shields.io/badge/For_VitePress-v1.6.4-%235C73E7?logo=vitepress&logoColor=white)](https://vuejs.github.io/vitepress/v1/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](/LICENSE)
+
+[![ESLint CI](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/eslint.yml/badge.svg)](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/eslint.yml)
+[![Prettier CI](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/prettier.yml/badge.svg)](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/prettier.yml)
+[![Generate TypeDoc](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/typedoc.yml/badge.svg)](https://github.com/asumo-1xts/vitepress-plugin-linkcard/actions/workflows/typedoc.yml)
 
 </div>
 
