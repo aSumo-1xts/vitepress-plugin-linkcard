@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "A vitepress-plugin to generate pretty link cards with OGP.",
   "main": "./dist/.esm.min.js",
   "module": "./dist/.esm.min.js",
