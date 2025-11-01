@@ -18,12 +18,13 @@ function inlineStyle(style: Record<string, string | number>) {
 const ellipsisStyle = (line: number) => ({
   "-webkit-box-orient": "vertical",
   "-webkit-line-clamp": line,
-  lineClamp: line,
   display: "-webkit-box",
+  hyphens: "auto",
+  lineClamp: line,
   overflow: "hidden",
+  overflowWrap: "break-word",
   textOverflow: "ellipsis",
-  wordBreak: "break-all",
-  overflowWrap: "anywhere",
+  wordBreak: "break-word",
 });
 
 // See: https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/components/VPFeature.vue
@@ -59,27 +60,27 @@ export const STYLE = (borderColor: string, bgColor: string) => ({
     minWidth: "0", // ellipsisを有効にするために必要
   }),
   title: inlineStyle({
-    ...ellipsisStyle(1),
+    ...ellipsisStyle(2),
     opacity: 1,
-    fontSize: "18px",
-    lineHeight: "24px",
-    margin: "0 12px 10px 16px",
+    fontSize: "16px",
+    lineHeight: "22px",
+    margin: "0 16px 8px 16px",
     fontWeight: "bold",
   }),
   domain: inlineStyle({
     ...ellipsisStyle(1),
     opacity: 1,
-    fontSize: "14px",
-    lineHeight: "18px",
-    margin: "10px 12px 10px 16px",
+    fontSize: "13px",
+    lineHeight: "16px",
+    margin: "8px 16px 8px 16px",
     textDecoration: "underline",
   }),
   description: inlineStyle({
     ...ellipsisStyle(2),
     opacity: 0.8,
-    fontSize: "14px",
-    lineHeight: "18px",
-    margin: "10px 12px 0px 16px",
+    fontSize: "13px",
+    lineHeight: "16px",
+    margin: "8px 16px 0px 16px",
   }),
 });
 

@@ -2,9 +2,7 @@
 
 Always welcome.
 
-## Notice
-
-### devDependencies
+## devDependencies
 
 > [!WARNING]
 > To avoid build failures, these packages must not be updated any further.
