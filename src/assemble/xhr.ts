@@ -1,5 +1,5 @@
 // Refactor: xmlhttprequest will be replaced later
-// @ts-ignore
+// @ts-expect-error: xmlhttprequest has no types
 import xhrForNode from "xmlhttprequest";
 import { inBrowser, isString } from "@luckrya/utility";
 

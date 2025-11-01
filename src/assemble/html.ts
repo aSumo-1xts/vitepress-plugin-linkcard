@@ -1,5 +1,5 @@
 import type { CardDomRender } from "../types";
-import { classNames, STYLE } from "./style";
+import { STYLE } from "./style";
 
 /**
  * @param data
@@ -15,7 +15,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     borderColor: `borderColor="${options.borderColor}"`,
     bgColor: `bgColor="${options.bgColor}"`,
   };
-  const inject = (s: string, c: string) => {
+  const inject = (s: string) => {
     return s;
   };
   const escapeHTML = (str: string) =>
@@ -25,7 +25,6 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       .replace(/&gt;/g, ">")
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'");
-  const classes = classNames(options.classPrefix);
   const style = STYLE(
     options.borderColor || "#7d7d7dff",
     options.bgColor || "#7d7d7d00"
@@ -53,19 +52,19 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
 
   return `<span style="display:block;">
   <a ${aa.rel} ${aa.target} ${aa.href} ${aa.title} ${style.a}>
-    <span ${inject(style.container, classes.container)}>
-      <span ${inject(style.texts, classes.texts)}>
-        <span ${inject(style.title, classes.title)}>
+    <span ${inject(style.container)}>
+      <span ${inject(style.texts)}>
+        <span ${inject(style.title)}>
           ${escapeHTML(title)}
         </span>
-        <span ${inject(style.domain, classes.domain)}>
+        <span ${inject(style.domain)}>
           ${escapeHTML(domain)}
         </span>
-        <span ${inject(style.description, classes.description)}>
+        <span ${inject(style.description)}>
           ${escapeHTML(description)}
         </span>
       </span>
-      <img src="${data?.logo}" ${inject(style.img, classes.img)}/>
+      <img src="${data?.logo}" ${inject(style.img)}/>
     </span>
   </a>
 </span>`;

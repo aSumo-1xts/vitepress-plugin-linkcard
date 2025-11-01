@@ -3,26 +3,23 @@ import fs from "node:fs";
 
 const CONFIG_FILE = () => `${process.cwd()}/.linkcardrc`;
 
-export default class LocalFileCache<V extends Record<string, any>> {
+export default class LocalFileCache<V extends Record<string, unknown>> {
   constructor() {}
 
   private setFile(data: Record<string, V>) {
-    try {
-      let content = data;
-      const _content = this.readFile();
-      if (_content) {
-        content = Object.assign(_content, content);
-      }
-      fs.writeFileSync(CONFIG_FILE(), JSON.stringify(content));
-    } catch {}
+    let content = data;
+    const _content = this.readFile();
+    if (_content) {
+      content = Object.assign(_content, content);
+    }
+    fs.writeFileSync(CONFIG_FILE(), JSON.stringify(content));
   }
 
   private readFile(): Record<string, V> | undefined {
-    try {
-      const content = fs.readFileSync(CONFIG_FILE(), "utf-8");
-      const data = JSON.parse(content);
-      if (isPureObject(data)) return data;
-    } catch {}
+    const content = fs.readFileSync(CONFIG_FILE(), "utf-8");
+    const data = JSON.parse(content);
+    if (isPureObject(data)) return data;
+
     return undefined;
   }
 

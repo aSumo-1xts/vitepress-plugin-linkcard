@@ -4,9 +4,7 @@
  * @returns
  */
 export function extractUrl(url: string) {
-  try {
-    return new URL(url);
-  } catch {}
+  return new URL(url);
 }
 
 /**

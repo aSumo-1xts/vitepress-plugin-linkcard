@@ -15,5 +15,5 @@
     "types": ["node"]
   },
 
-  "exclude": ["types"]
+  "include": ["src"]
 }

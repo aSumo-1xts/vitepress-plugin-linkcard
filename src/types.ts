@@ -20,6 +20,7 @@ export interface UrlMetadata {
   title?: string;
   description?: string;
   logo?: string;
+  [key: string]: unknown; // Add index signature to satisfy Record<string, unknown>
 }
 
 export type ATarget = "_self" | "_blank" | "_top" | "_parent";

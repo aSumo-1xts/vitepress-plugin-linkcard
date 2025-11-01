@@ -29,13 +29,13 @@ function matchTitleByMetaTag(htmlString: string) {
   let title: string | undefined;
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("title"));
 
-  if (!!metas?.length) {
+  if (metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) title = content[1];
   } else {
     const titleHtmlTag = htmlString.match(HtmlTitleTagReg);
 
-    if (!!titleHtmlTag?.length) {
+    if (titleHtmlTag?.length) {
       const content = titleHtmlTag[0].match(HtmlTagContentReg);
       if (content && isString(content[2])) title = content[2];
     }
@@ -53,7 +53,7 @@ function matchDescriptionByMetaTag(htmlString: string) {
   let description: string | undefined;
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("description"));
 
-  if (!!metas?.length) {
+  if (metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) description = content[1];
   }
@@ -69,7 +69,7 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
   let logo: string | undefined;
   const metas = htmlString.match(containArrSelfLosingHtmlTagReg("image"));
 
-  if (!!metas?.length) {
+  if (metas?.length) {
     const content = metas[0].match(ContentAttrValueHtmlMetaTagReg);
     if (content && isString(content[1])) logo = content[1];
   } else {
@@ -77,7 +77,7 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
       containArrSelfLosingHtmlTagReg("icon", "link")
     );
 
-    if (!!linkHtmlTags?.length) {
+    if (linkHtmlTags?.length) {
       const content = linkHtmlTags[0].match(HrefAttrValueHtmlLinkTagReg);
       // logo 判断是否是完整地址
       if (content && isString(content[1])) logo = content[1];
