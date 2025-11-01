@@ -31,7 +31,7 @@ export function sync(url: string) {
         err instanceof Error
           ? err.message
           : "get remote URL resource exception!"
-      }`
+      }`,
     );
   }
 

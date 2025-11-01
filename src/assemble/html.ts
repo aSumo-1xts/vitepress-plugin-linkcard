@@ -27,7 +27,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
       .replace(/&#039;/g, "'");
   const style = STYLE(
     options.borderColor || "#7d7d7dff",
-    options.bgColor || "#7d7d7d00"
+    options.bgColor || "#7d7d7d00",
   );
   const url = options.href || "";
   const domain =
@@ -43,7 +43,7 @@ export const generateCardDomFragment: CardDomRender = (data, options) => {
     description =
       description?.replace(` - ${title}`, "").replace(
         `Contribute to ${title} development by creating an account on GitHub.`, // 定型句
-        ""
+        "",
       ) || "";
   } else {
     title = data.title || "No title";

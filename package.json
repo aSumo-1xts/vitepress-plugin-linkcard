@@ -66,5 +66,8 @@
     "xmlhttprequest": "^1.8.0"
   },
   "type": "module",
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.2",
+  "dependencies": {
+    "prettier": "^3.6.2"
+  }
 }

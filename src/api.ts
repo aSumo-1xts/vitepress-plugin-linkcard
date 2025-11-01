@@ -17,7 +17,7 @@ interface CardResponse {
  */
 export function generateCard(
   url: string,
-  options: Omit<CardDomRenderOptions, "href">
+  options: Omit<CardDomRenderOptions, "href">,
 ): Promise<CardResponse> {
   return new Promise((resolve) => {
     const htmlString = xhr.sync(url);
