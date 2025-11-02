@@ -27,6 +27,8 @@ jobs:
           corepack enable
           corepack prepare yarn@4.9.2 --activate
           yarn install --immutable --immutable-cache --check-cache
+          env:
+            YARN_ENABLE_HARDENED_MODE: 0
       - name: Run Prettier and commit changes
         run: |
           yarn prettier --write "src/**/*.{js,ts,vue}"

@@ -21,7 +21,7 @@ jobs:
         run: |
           corepack enable
           corepack prepare yarn@4.9.2 --activate
-          yarn install --immutable --immutable-cache --check-cache
+          yarn install --immutable
       - name: Run ESLint
         run: |
           yarn lint
