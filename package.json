@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "A vitepress-plugin to generate pretty link cards with OGP.",
   "main": "./dist/.esm.min.js",
   "module": "./dist/.esm.min.js",
@@ -68,5 +68,8 @@
     "xmlhttprequest": "^1.8.0"
   },
   "type": "module",
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.9.2",
+  "dependencies": {
+    "prettier": "^3.6.2"
+  }
 }

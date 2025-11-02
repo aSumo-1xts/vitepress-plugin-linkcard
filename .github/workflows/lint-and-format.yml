@@ -1,4 +1,4 @@
-name: ESLint CI
+name: ESLint and Prettier CI
 
 on:
   pull_request:
@@ -8,11 +8,13 @@ on:
       - "src/**/*"
 
 jobs:
-  run-eslint:
+  run-eslint-and-prettier:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -23,5 +25,14 @@ jobs:
           corepack prepare yarn@4.9.2 --activate
           yarn install --immutable --immutable-cache --check-cache
       - name: Run ESLint
-        run: |
-          yarn lint
+        uses: sibiraj-s/action-eslint@v4
+        with:
+          eslint-args: "--config .vscode/eslint.config.ts src/"
+          extensions: "js,jsx,ts,tsx"
+          annotations: true
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.6
+        with:
+          working_directory: src/
+          prettier_options: --write src/**/*
+          same_commit: true
