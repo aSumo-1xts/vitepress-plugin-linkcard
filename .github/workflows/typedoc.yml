@@ -18,12 +18,14 @@ jobs:
         with:
           node-version: 20
           cache: 'yarn'
-      - name: Install, build, and deploy
+      - name: Enable Corepack (Yarn 4.9.2)
         run: |
           corepack enable
           corepack prepare yarn@4.9.2 --activate
-          yarn install --immutable
-          yarn typedoc
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Generate TypeDoc
+        run: yarn typedoc
       # ここまでテンプレ
       #
       # 生成された docs を一時保存

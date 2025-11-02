@@ -17,11 +17,14 @@ jobs:
           cache: 'yarn'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@asumo-1xts'
-      - name: Install, build, and publish
+      - name: Enable Corepack (Yarn 4.9.2)
         run: |
           corepack enable
           corepack prepare yarn@4.9.2 --activate
-          yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Build and publish
+        run: |
           yarn build
           yarn npm publish --access restricted
         env:
