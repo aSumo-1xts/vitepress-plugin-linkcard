@@ -4,3 +4,4 @@ docs/
 types/
 .pnp.*
 .ssh/
+node_modules/

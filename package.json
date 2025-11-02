@@ -18,7 +18,7 @@
     "dev": "rollup -c -w",
     "type:dts": "tsc --emitDeclarationOnly",
     "lint": "yarn eslint --config .vscode/eslint.config.ts src/",
-    "format": "yarn prettier --write src/**/*"  
+    "format": "yarn prettier --write src/**/*"
   },
   "repository": {
     "type": "git",
