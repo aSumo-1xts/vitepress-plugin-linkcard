@@ -20,6 +20,7 @@ jobs:
           cache: 'yarn'
       - name: Enable Corepack (Yarn 4.9.2)
         run: |
+          npm uninstall -g yarn
           corepack enable
           corepack prepare yarn@4.9.2 --activate
       - name: Install dependencies
