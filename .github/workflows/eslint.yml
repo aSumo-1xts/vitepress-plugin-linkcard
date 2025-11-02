@@ -21,10 +21,7 @@ jobs:
         run: |
           corepack enable
           corepack prepare yarn@4.9.2 --activate
-          yarn install --immutable
+          yarn install --immutable --immutable-cache --check-cache
       - name: Run ESLint
-        uses: sibiraj-s/action-eslint@v4
-        with:
-          eslint-args: "--config .vscode/eslint.config.ts src/"
-          extensions: "js,jsx,ts,tsx"
-          annotations: true
+        run: |
+          yarn lint

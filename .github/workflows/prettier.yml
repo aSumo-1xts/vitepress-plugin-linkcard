@@ -7,17 +7,31 @@ on:
     paths:
       - "src/**/*"
 
+permissions:
+  contents: write
+
 jobs:
   run-prettier:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with: 
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-      - name: Prettify code
-        uses: creyD/prettier_action@v4.6
-        with:
-          working_directory: src/
-          prettier_options: --write src/**/*
-          same_commit: true
+          node-version: 20
+      - name: Install dependencies
+        run: |
+          corepack enable
+          corepack prepare yarn@4.9.2 --activate
+          yarn install --immutable --immutable-cache --check-cache
+      - name: Run Prettier and commit changes
+        run: |
+          yarn prettier --write "src/**/*.{js,ts,vue}"
+          git config user.name "gh-actions[bot]"
+          git config user.email "gh-actions[bot]@github.com"
+          git add .
+          git commit -m "auto: Format code with Prettier" || echo "No changes to commit"
+          git push origin main
