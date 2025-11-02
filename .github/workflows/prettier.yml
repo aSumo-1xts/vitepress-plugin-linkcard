@@ -22,13 +22,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies
+          cache: 'yarn'
+      - name: Enable Corepack (Yarn 4.9.2)
         run: |
+          npm uninstall -g yarn
           corepack enable
           corepack prepare yarn@4.9.2 --activate
-          yarn install --immutable --immutable-cache --check-cache
-          env:
-            YARN_ENABLE_HARDENED_MODE: 0
+      - name: Install dependencies
+        run: yarn install --immutable
       - name: Run Prettier and commit changes
         run: |
           yarn prettier --write "src/**/*.{js,ts,vue}"

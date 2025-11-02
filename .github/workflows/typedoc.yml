@@ -16,15 +16,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
-      - name: Install, build, and deploy
+          node-version: 20
+          cache: 'yarn'
+      - name: Enable Yarn 4.9.2
         run: |
+          npm uninstall -g yarn
           corepack enable
           corepack prepare yarn@4.9.2 --activate
-          yarn install --immutable --immutable-cache --check-cache
-          env: 
-            YARN_ENABLE_HARDENED_MODE: 0
-          yarn typedoc
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Generate TypeDoc
+        run: yarn typedoc
       # ここまでテンプレ
       #
       # 生成された docs を一時保存
