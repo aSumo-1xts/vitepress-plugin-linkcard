@@ -36,5 +36,5 @@ export interface CardDomRenderOptions {
 
 export type CardDomRender = (
   data: UrlMetadata,
-  options: CardDomRenderOptions
+  options: CardDomRenderOptions,
 ) => string;

@@ -15,7 +15,7 @@ const HtmlTitleTagReg = /(<title\s*[^>]*>(.*)<\/title>)/g;
 // const HtmlLinkTagReg = /<link\s[^>]*\/?>/g;
 const containArrSelfLosingHtmlTagReg = (attr: string, tag = "meta") =>
   new RegExp(
-    `<${tag}\\s[^>]*\\w+=['|"]([a-zA-Z]|:|\\s)*${attr}['|"][^>]*\\/?>`
+    `<${tag}\\s[^>]*\\w+=['|"]([a-zA-Z]|:|\\s)*${attr}['|"][^>]*\\/?>`,
   );
 
 /**
@@ -74,7 +74,7 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
     if (content && isString(content[1])) logo = content[1];
   } else {
     const linkHtmlTags = htmlString.match(
-      containArrSelfLosingHtmlTagReg("icon", "link")
+      containArrSelfLosingHtmlTagReg("icon", "link"),
     );
 
     if (linkHtmlTags?.length) {
@@ -94,7 +94,7 @@ function matchLogoByLinkOrMetaTag(htmlString: string) {
  */
 export function parserMetadata(
   htmlString: string,
-  url: string
+  url: string,
 ): UrlMetadata | null {
   function absolute(logo?: string) {
     if (!logo) return DEFAULT_LOGO;
